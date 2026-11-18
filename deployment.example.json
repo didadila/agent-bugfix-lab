@@ -1,0 +1,25 @@
+{
+  "since": "2030-01-01T00:00:00Z",
+  "pollSeconds": 900,
+  "port": 4318,
+  "repositories": [
+    {
+      "name": "example/project",
+      "id": 100,
+      "installation": 200,
+      "approvers": [300],
+      "label": "agent-fix",
+      "delivery": "patch",
+      "checks": {
+        "image": "node@sha256:REPLACE_WITH_64_HEX_DIGEST",
+        "editable": ["src/total.js"],
+        "context": ["verify-total.js"],
+        "regression": {
+          "id": "total",
+          "argv": ["node", "verify-total.js"],
+          "failureMarker": "EXPECTED_TOTAL"
+        }
+      }
+    }
+  ]
+}
